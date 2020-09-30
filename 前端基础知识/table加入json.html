@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="显示">
+    <hr>
+    <table width="50%" border="1px" >
+       
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>工资</th>
+        </tr>
+        <tbody id="tal">
+        <!-- <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr> -->
+    </tbody>
+    
+    </table>
+    总共<span id="total">0</span>条记录
+    <script>
+        var jsonObj={
+            total:4,
+            data:[
+                {name:"ss",age:"12",sale:"12222"},
+                {name:"dd",age:"15",sale:"1286"},
+                {name:"ds",age:"18",sale:"12782"}
+            ]
+        };
+        var displayBtn=document.getElementById("btn");
+        displayBtn.onclick=function(){
+           var datas=jsonObj.data;
+           var html="";
+           for(var i=0;i<datas.length;i++){
+               var shuju=datas[i];
+               html+="<tr>";
+               html+="<td>"+shuju.name+"</td>";
+               html+="<td>"+shuju.age+"</td>";
+               html+="<td>"+shuju.sale+"</td>";
+               html+="</tr>";
+           }
+           document.getElementById("tal").innerHTML=html;
+           document.getElementById("total").innerHTML=jsonObj.total;
+
+        }
+    </script>
+</body>
+</html>
